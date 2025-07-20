@@ -8,13 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Get the value of the 'table' parameter from the URL.
   // If it doesn't exist, default to 'N/A'.
-  const tableNumber = urlParams.get("table") || "N/A";
+  // Make tableNumber global so all functions can use it
+const urlParams = new URLSearchParams(window.location.search);
+const tableNumber = urlParams.get("table") || "N/A";
 
-  // Find the HTML element with the id 'tableNumberDisplay' and update its text.
+document.addEventListener("DOMContentLoaded", () => {
+  // Now remove the duplicate tableNumber part from here
   const tableNumberElement = document.getElementById("tableNumberDisplay");
   if (tableNumberElement) {
     tableNumberElement.textContent = tableNumber;
   }
+
+  // ... rest of your code ...
 
   // --- PART 2: SHOPPING CART LOGIC ---
 
